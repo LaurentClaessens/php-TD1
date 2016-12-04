@@ -23,12 +23,13 @@ function printHour($h,$i)
 Print "X heures Y minutes".
 */
 {
-    echo $h," heures ",$i, "minutes";
+    echo $h," heures ",$i, " minutes";
 }
 
 function sayHello($h,$i)
 /*
 Say "Bonjour il est X heures Y minutes" ("Bonjour" only in the morning). 
+An end of line is added.
 */
 {
     if ($h<12)
@@ -39,6 +40,7 @@ Say "Bonjour il est X heures Y minutes" ("Bonjour" only in the morning).
     {
         echo "Il est ", printHour($h,$i); 
     }
+    echo "<br>";
 }
 
 ?>            

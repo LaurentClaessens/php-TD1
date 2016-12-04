@@ -1,3 +1,4 @@
 *.swp
 *~
 .ackrc
+php.vim
