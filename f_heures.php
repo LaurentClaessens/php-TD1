@@ -18,8 +18,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //*/
 
 
-    $d = getdate();
-    $h = $d['hours'];
-    $i = $d['minutes'];
-    sayHello($h,$i);
+function printHour($h,$i)
+/*
+Print "X heures Y minutes".
+*/
+{
+    echo $h," heures ",$i, "minutes";
+}
+
+function sayHello($h,$i)
+/*
+Say "Bonjour il est X heures Y minutes" ("Bonjour" only in the morning). 
+*/
+{
+    if ($h<12)
+    {
+        echo "Bonjour il est ", printHour($h,$i); 
+    }
+    else
+    {
+        echo "Il est ", printHour($h,$i); 
+    }
+}
+
 ?>            
