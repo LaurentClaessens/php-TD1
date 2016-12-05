@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 include 'outils.php';     
 include 'tests/utilities.php';
 
-function test_afficherTableauindice($arr,$expected)
+function test_afficheTableauIndice($arr,$expected)
 {
     $ob_writer=new OB_textWriter();
     $ob_writer->start();
@@ -32,7 +32,31 @@ function test_afficherTableauindice($arr,$expected)
     testEquality($obtained,$expected);
 }
 
+function test_afficheTableauAssociatif($arr,$expected)
+{
+    $ob_writer=new OB_textWriter();
+    $ob_writer->start();
+    afficheTableauAssociatif($arr);
+    $ob_writer->end();
+    $obtained=$ob_writer->getText();
+    testEquality($obtained,$expected);
+}
+function test_afficheTableauAssociatifHTML($arr,$expected)
+{
+    $ob_writer=new OB_textWriter();
+    $ob_writer->start();
+    afficheTableauAssociatifHTML($arr);
+    $ob_writer->end();
+    $obtained=$ob_writer->getText();
+    testEquality($obtained,$expected);
+}
+
+
 $arr=array("first","second",4,true,false,"last");
-test_afficherTableauindice($arr,"first<br>second<br>4<br>1<br><br>last");
-test_afficherTableauindice(array(10,8,4),"10<br>8<br>4");
+test_afficheTableauIndice($arr,"first<br>second<br>4<br>1<br><br>last");
+test_afficheTableauIndice(array(10,8,4),"10<br>8<br>4");
+test_afficheTableauIndice(array(10,8,4),"10<br>8<br>4");
+test_afficheTableauAssociatif(array("1"=>2,"2"=>4,"4"=>8),"1 = 2<br>2 = 4<br>4 = 8");
+test_afficheTableauAssociatif(array("jour"=>22,"mois"=>"novembre","année"=>2012,"ville"=>"Besançon"),"jour = 22<br>mois = novembre<br>année = 2012<br>ville = Besançon");
+test_afficheTableauAssociatifHTML(array("1"=>1,true=>"true",false=>"false"),"1 = 1<br>1 = true<br> = false");
 ?>            

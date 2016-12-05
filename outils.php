@@ -25,4 +25,29 @@ function afficheTableauIndice($arr)
     echo implode("<br>",$arr);
 }
 
+function afficheTableauAssociatif($ass)
+    // print an associative array under the form
+    // key1 = val1
+    // key2 = val2
+    // in the sense that it adds <br> between each "k=v" term.
+{
+    $arr=array();
+    foreach ($ass as $key=>$val)
+    {
+        $arr[]=$key." = ".$val;
+    }
+    echo implode("<br>",$arr);
+}
+
+function afficheTableauAssociatifHTML($ass)
+    // print the associative array `$ass` as an html <table>...</table>.
+{
+    echo "<table>";
+    foreach ($ass as $key=>$val)
+    {
+        echo "<tr><td>",$key,"</td><td>",$val,"</td></tr>";
+    }
+}
+
 ?>            
+

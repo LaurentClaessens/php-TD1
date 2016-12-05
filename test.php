@@ -28,5 +28,10 @@ $arr=array("first","second",4,true,false,"last");
 afficheTableauIndice($arr);
 echo "<br>";
 afficheTableauIndice(array(1,2,3));
-
+echo "<br>";
+afficheTableauAssociatif(array("jour"=>22,"mois"=>"novembre","année"=>2012,"ville"=>"Besançon"));
+echo "<br>";
+afficheTableauAssociatifHTML(array("jour"=>22,"mois"=>"novembre","année"=>2012,"ville"=>"Besançon"));
+echo "<br>";
+afficheTableauAssociatifHTML(array("a"=>"b","1a"=>1,true=>"true",false=>"false"));
 ?>            
