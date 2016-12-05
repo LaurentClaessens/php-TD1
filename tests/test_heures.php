@@ -17,48 +17,10 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //*/
 
-include '../f_heures.php';
-
-function testEquality($a,$b)
-{
-    if  ($a!=$b) 
-    { 
-        echo "pas ok"; 
-        echo "Obtained : ",$a," Expected :  ",$b;
-    }
-}
-
-class OB_textWriter
-    /*
-     * Redirect all the `echo` calls to a string buffer.
-    */
-{
-    private $_text_buffer;
-
-    public function __construct()
-    {
-        $this->_text_buffer="";
-    }
-
-    public function start()
-    {
-        ob_start(array($this,'outputHandler'));
-    }
-
-    public function outputHandler($text)
-    {
-        $this->_text_buffer=$this->_text_buffer.$text;
-    }
-    public function getText()
-    {
-        return $this->_text_buffer;
-    }
-
-    public function end()
-    {
-        @ob_end_flush();
-    }
-}
+// The tests are supposed to be launched from the script `tests.sh` in the main directory. So we do not 
+// include "../f_heures.php" and "utilities.php"
+include 'f_heures.php';     
+include 'tests/utilities.php';
 
 function test_sayHello($h,$i,$expected)
 {
