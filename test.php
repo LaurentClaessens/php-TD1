@@ -23,15 +23,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 require 'outils.php';
+require 'ranarray.php';
 
+// TABLEAU INDICE
 $arr=array("first","second",4,true,false,"last");
 afficheTableauIndice($arr);
 echo "<br>";
 afficheTableauIndice(array(1,2,3));
 echo "<br>";
+
+// TABLEAU ASSOCIATIF
 afficheTableauAssociatif(array("jour"=>22,"mois"=>"novembre","année"=>2012,"ville"=>"Besançon"));
 echo "<br>";
+
+// TABLEAU HTML
 afficheTableauAssociatifHTML(array("jour"=>22,"mois"=>"novembre","année"=>2012,"ville"=>"Besançon"));
 echo "<br>";
 afficheTableauAssociatifHTML(array("a"=>"b","1a"=>1,true=>"true",false=>"false"));
+
+// RANDOM ARRAY
+
 ?>            

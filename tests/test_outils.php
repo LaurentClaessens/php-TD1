@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // The tests are supposed to be launched from the script `tests.sh` in the main directory. So we do not 
 // include "../f_heures.php" and "utilities.php"
-include 'outils.php';     
+include 'outils.php';
 include 'tests/utilities.php';
 
 function test_afficheTableauIndice($arr,$expected)
@@ -58,5 +58,7 @@ test_afficheTableauIndice(array(10,8,4),"10<br>8<br>4");
 test_afficheTableauIndice(array(10,8,4),"10<br>8<br>4");
 test_afficheTableauAssociatif(array("1"=>2,"2"=>4,"4"=>8),"1 = 2<br>2 = 4<br>4 = 8");
 test_afficheTableauAssociatif(array("jour"=>22,"mois"=>"novembre","année"=>2012,"ville"=>"Besançon"),"jour = 22<br>mois = novembre<br>année = 2012<br>ville = Besançon");
-test_afficheTableauAssociatifHTML(array("1"=>1,true=>"true",false=>"false"),"1 = 1<br>1 = true<br> = false");
+test_afficheTableauAssociatifHTML(array("1"=>1,"bof"=>"true",false=>"false"),"<table><tr><td>1</td><td>1</td></tr><tr><td>bof</td><td>true</td></tr><tr><td>0</td><td>false</td></tr>");
+
+
 ?>            
