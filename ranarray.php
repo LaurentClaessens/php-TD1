@@ -17,14 +17,23 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //*/
 
-
-function tabAlea($size)
+function tabAlea($size,$sorting=false,$max_value=100)
+// retun a renadom array.
+// By default the values are integers from 0 to 100.
+//
+// `size` (integer)  is the size of the array.
+// `sorting` (boolean, default=false). When true, the returned array is sorted
+// `max_value` (integer, default=100). When given the random elements are
+//                      taken in 0...max_value.
+//      
 {
     $ans=array();
     for ($i=0;$i<$size;$i++)
     {
-        $ans[]=mt_rand(0,100);
+        $ans[]=mt_rand(0,$max=$max_value);
     }
+    if ($sorting) {sort($ans);}
+
     return $ans;
 }
 

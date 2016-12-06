@@ -51,7 +51,6 @@ function test_afficheTableauAssociatifHTML($arr,$expected)
     testEquality($obtained,$expected);
 }
 
-
 $arr=array("first","second",4,true,false,"last");
 test_afficheTableauIndice($arr,"first<br>second<br>4<br>1<br><br>last");
 test_afficheTableauIndice(array(10,8,4),"10<br>8<br>4");

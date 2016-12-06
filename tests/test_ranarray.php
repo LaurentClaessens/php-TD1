@@ -38,6 +38,68 @@ function test_randarray1()
     }
 }
 
+function test_randarray2()
+{
+    $v_min=1000;
+    $v_max=0;
+    for ($i=0;$i<=20;$i++)
+    {
+        $tab=tabAlea(50);
+        $v_max=max(array($v_max,max($tab)));
+        $v_min=min(array($v_min,min($tab)));
+    }
+    if ($v_min>0) {echo "<br> le minimum devrait être 0.";}
+    if ($v_max<100) {echo "<br> le maximum devrait être 100.";}
+}
+
+function isSorted($arr)
+// return 'true' if the array is sorted.
+// return 'false' otherwise.
+{
+    for ($i=1;$i<count($arr);$i++)
+    {
+        if ($arr[$i]<$arr[$i-1])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+function test_randarray3()
+{
+    $tab=tabAlea(5,$sorting=true);
+    testEquality(isSorted($tab),true);
+    $tab=tabAlea(50);
+    testEquality(isSorted($tab),false);
+    $tab=tabAlea(47,$sorting=true);
+    testEquality(isSorted($tab),true);
+}
+
+function test_randarray4()
+{
+    $v_min=1000;
+    $v_max=0;
+    for ($i=0;$i<=20;$i++)
+    {
+        $tab=tabAlea(50,$sorting=false,$max_value=10);
+        $v_max=max(array($v_max,max($tab)));
+        $v_min=min(array($v_min,min($tab)));
+    }
+    if ($v_min>0) {echo "<br> le minimum devrait être 0.";}
+    if ($v_max<10) {echo "<br> le maximum devrait être 100.";}
+}
+
+function test_randarray5()
+{
+    testEquality(isSorted(tabAlea(11,$sorting=false,$max_value=5)),false);
+    testEquality(isSorted(tabAlea(12,$sorting=true,$max_value=5)),true);
+}
+
 test_randarray1();
+test_randarray2();
+test_randarray3();
+test_randarray4();
+test_randarray5();
 
 ?>            

@@ -39,8 +39,24 @@ echo "<br>";
 // TABLEAU HTML
 afficheTableauAssociatifHTML(array("jour"=>22,"mois"=>"novembre","année"=>2012,"ville"=>"Besançon"));
 echo "<br>";
-afficheTableauAssociatifHTML(array("a"=>"b","1a"=>1,true=>"true",false=>"false"));
 
 // RANDOM ARRAY
 
+echo "<h1> Des tableaux aléatoires (question 7)</h1>";
+
+for ($i=5;$i<=20;$i++)
+{
+    echo "<h2> avec ",$i," composantes</h2>";
+    afficheTableauIndice(tabAlea($i));
+}
+?>            
+
+<h1> Des tableaux aléatoires triés (question 8)</h1>
+
+<?php
+for ($i=1;$i<=5;$i++)
+{
+    echo "<h2> avec ",$i," composantes</h2>";
+    afficheTableauIndice(tabAlea($i,$sorting=true));
+}
 ?>            
