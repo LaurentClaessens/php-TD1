@@ -22,5 +22,8 @@ include 'f_heures.php';
     $d = getdate();
     $h = $d['hours'];
     $i = $d['minutes'];
+?>            
+<h1>Exercices 1 et 2</h1>
+<?php
     sayHello($h,$i);
 ?>            

@@ -66,6 +66,21 @@ function isSorted($arr)
     return true;
 }
 
+function hasDuplicates($arr)
+// return 'true' if the array `$arr` has duplicates.
+{
+    $s=count($arr);
+    for ($i=0;$i<$s-1;$i++)
+    {
+        for ($j=$i+1;$j<$s;$j++)
+        {
+            if ($arr[$j]==$arr[$i]) { return true; }
+        }
+    }
+    return false;
+}
+
+
 function test_randarray3()
 {
     $tab=tabAlea(5,$sorting=true);
@@ -95,11 +110,18 @@ function test_randarray5()
     testEquality(isSorted(tabAlea(11,$sorting=false,$max_value=5)),false);
     testEquality(isSorted(tabAlea(12,$sorting=true,$max_value=5)),true);
 }
-
+function test_randarray6()
+{
+    testEquality(isSorted(tabAlea(11,$sorting=false,$max_value=50),$accept_duplicate=false),false);
+    $tab=tabAlea(7,$sorting=false,$max_value=10,$accept_duplicate=false);
+    testEquality(hasDuplicates($tab),false);
+    $tab=tabAlea(99,$sorting=false,$max_value=100,$accept_duplicate=true);
+    testEquality(hasDuplicates($tab),true);
+}
 test_randarray1();
 test_randarray2();
 test_randarray3();
 test_randarray4();
 test_randarray5();
-
+test_randarray6();
 ?>            

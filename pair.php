@@ -18,8 +18,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //*/
 
 require 'f_pair.php';
-
-echo isPair_fr(3.4);
-
 ?>            
 
+<h1>Exercice 3</h1>
+
+<?php
+for ($i=0;$i<=100;$i++)
+{
+    echo $i," ",isPair_fr($i),"<br>";
+}
+?>            

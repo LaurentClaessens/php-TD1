@@ -1,5 +1,7 @@
 *.swp
 *~
 .ackrc
-php.vim
+session.vim
 .kk.log
+php.vim
+tests/.gitignore

@@ -47,6 +47,7 @@ function afficheTableauAssociatifHTML($ass)
     {
         echo "<tr><td>",$key,"</td><td>",$val,"</td></tr>";
     }
+    echo "</table>";
 }
 
 ?>            

@@ -25,38 +25,112 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 require 'outils.php';
 require 'ranarray.php';
 
-// TABLEAU INDICE
+?>            
+
+<h1>Tests de fonctions pour le TP de php</h1>
+
+<h2>À propos de tableaux</h2>
+
+<h3>Exercice 4</h3>
+<ul>
+</li>
+<li>
+ Un tableau classique : 1,2,3:
+<br>
+<?php
+afficheTableauIndice(array(1,2,3));
+?>            
+</li>
+<li>
+Un tableau qui illustre le fait que "false" se convertit en la chaîne vide alors que "true" se convertit en "1" :
+<br>
+<?php
 $arr=array("first","second",4,true,false,"last");
 afficheTableauIndice($arr);
-echo "<br>";
-afficheTableauIndice(array(1,2,3));
-echo "<br>";
+?>
+</ul>
 
-// TABLEAU ASSOCIATIF
+<h3>Exercice 5</h3>
+
+<ul>
+<li>
+Le tableau classique attendu :
+<br>
+<?php
 afficheTableauAssociatif(array("jour"=>22,"mois"=>"novembre","année"=>2012,"ville"=>"Besançon"));
-echo "<br>";
+?>
+</li>
+<li>
+ À peine moins attendu : quelque conversions.
+<br>
+<?php
+afficheTableauAssociatif(array("1"=>1,"true"=>true,"false"=>false,"0"=>0));
+?>
+</li>
+<li>
+Un peu d'UTF à la fois dans les clefs et les valeurs :
+<br>
+<?php
+afficheTableauAssociatif(array("à"=>"ù","ô"=>"€","ŋ"=>"ó","ĺ"=>"ñ",""=>"𝄞"));
+?>
+</li>
+</ul>
 
-// TABLEAU HTML
+<h3>Exercice 6</h3>
+
+<p>
+    Pour cet exercice, un tableau très attendu :
+</p>
+<?php
 afficheTableauAssociatifHTML(array("jour"=>22,"mois"=>"novembre","année"=>2012,"ville"=>"Besançon"));
-echo "<br>";
+?>
 
-// RANDOM ARRAY
+<h2>À propos de tableaux aléatoires</h2>
 
-echo "<h1> Des tableaux aléatoires (question 7)</h1>";
-
+<h3>Exercice 7</h3>
+<?php
 for ($i=5;$i<=20;$i++)
 {
-    echo "<h2> avec ",$i," composantes</h2>";
+    echo "<h4> Avec ",$i," composantes</h4>";
     afficheTableauIndice(tabAlea($i));
 }
 ?>            
 
-<h1> Des tableaux aléatoires triés (question 8)</h1>
-
+<h3>Exercice 8</h3>
 <?php
 for ($i=1;$i<=5;$i++)
 {
-    echo "<h2> avec ",$i," composantes</h2>";
+    echo "<h4> Avec ",$i," composantes</h4>";
     afficheTableauIndice(tabAlea($i,$sorting=true));
 }
 ?>            
+<h3>Exercice 9</h3>
+
+<ul>
+<li>
+ Un tableau de 10 cases dont les valeurs sont comprises entre 0 et 20.
+<br>
+<?php
+    afficheTableauIndice(tabAlea(10,$sorting=false,$max_value=20,$accept_duplicate=false));
+?>            
+</li>
+<li>
+La même idée, mais avec des valeurs triées dans l'ordre croissant :
+<br>
+<?php
+    afficheTableauIndice(tabAlea(10,$sorting=true,$max_value=20,$accept_duplicate=false));
+?>            
+</li>
+<li>
+ Si on veut 10 cases avec des valeurs entre 0 et 5 (sans répétitions), la fonction lève une exception. Sans cette précaution, la boucle `while` ne finirait jamais, et le serveur ne répondrait jamais.
+
+Grâce à la levée d'exception, il n'y a pas de plantage, mais l'interprétation s'arrête et la page est tronquée.
+<?php
+    afficheTableauIndice(tabAlea(10,$sorting=true,$max_value=5,$accept_duplicate=false));
+?>            
+Rien n'est affiché ? Normal. Il devrait y avoir un tableau impossible.
+</li>
+
+</ul>
+
+Le reste de la page.
